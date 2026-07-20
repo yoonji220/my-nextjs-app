@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Script from "next/script";
+import Controls from "./Controls";
 // import { useState, useEffect } from "react";
 
 export const metadata = {
@@ -69,17 +70,7 @@ export default async function RootLayout({ children }) {
         <main>
           {children}
           <hr />
-          <div className="d-flex gap-1">
-            <Link className="btn btn-primary" href="/create">
-              Create
-            </Link>
-            <Link className="btn btn-secondary" href="/update">
-              Update
-            </Link>
-            <Link className="btn btn-danger" href="/delete">
-              Delete
-            </Link>
-          </div>
+          <Controls />
         </main>
         <Script src="/main.js" strategy="afterInteractive" />
       </body>

@@ -30,7 +30,7 @@ export default function Create() {
         }}
       >
         <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
+          <label htmlFor="title" className="form-label">
             title
           </label>
           <input

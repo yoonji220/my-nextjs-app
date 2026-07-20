@@ -47,7 +47,7 @@ export default function Update() {
         action=""
         onSubmit={e => {
           e.preventDefault();
-          fetch(`http://localhost:9999/topics/${id}`, {
+          const options = {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
@@ -56,7 +56,8 @@ export default function Update() {
               title,
               message,
             }),
-          })
+          };
+          fetch(`http://localhost:9999/topics/${id}`, options)
             .then(res => res.json())
             .then(result => {
               router.push(`/read/${result.id}`);

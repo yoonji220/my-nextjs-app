@@ -1,5 +1,8 @@
 "use client";
+import { useRouter } from "next/navigation";
+
 export default function Create() {
+  const router = useRouter();
   console.log("Create Page 레이아웃 작동");
   return (
     <>
@@ -10,6 +13,20 @@ export default function Create() {
           e.preventDefault();
           const title = e.target.title.value;
           const message = e.target.message.value;
+          const options = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ title, message }), //"title":"제목","message" : "설명"
+          };
+          fetch("http://localhost:9999/topics", options)
+            .then(res => res.json())
+            .then(result => {
+              // console.log(result);
+              router.push(`/read/${result.id}`);
+              router.refresh();
+            });
         }}
       >
         <div className="mb-3">

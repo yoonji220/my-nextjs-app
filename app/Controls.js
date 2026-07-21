@@ -8,7 +8,7 @@ function Controls() {
 
   const handleDelete = () => {
     if (window.confirm("정말 삭제할까요?")) {
-      fetch(`http://localhost:9999/topics/${id}`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics/${id}`, {
         method: "DELETE",
       })
         .then(res => res.json())

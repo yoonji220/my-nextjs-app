@@ -34,7 +34,9 @@ export default async function RootLayout({ children }) {
   // }, []);
   // console.log(topics);
   //fetch(`https://...`, { next: { revalidate: false | 0 | number } })
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`, {
+    cache: "no-store",
+  });
   const topics = await response.json();
 
   console.log("공통 레이아웃 작동");
